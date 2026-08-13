@@ -1,5 +1,5 @@
 import sys 
-import logging 
+from src.logger import logging 
 #whenever an exception gets raised, i want to push my own custom message
 
 # error, error_detail: sys (the error you are getting & error_detail, whcih is passed into the sys)
@@ -31,11 +31,13 @@ class CustomException(Exception):
     def __str__(self):
         return self.error_message
 
-    
 if __name__ == '__main__':
     try:
-        a = 1/0
-    except Exception as e: # this e is our 'error message'
-        logging.info('divide by zero error')
+        a = 10/0
+        
+    except Exception as e:
+        
+        
+        logging.info('divide by 0')
         raise CustomException(e, sys)
-
+    
